@@ -101,4 +101,21 @@ public class FunkoServicioImp implements FunkoServicio{
         // Borramos en la cache
         cache.clear();
     }
+    @Override
+    public Optional<Funko> funkoCaro() throws ExecutionException, InterruptedException {
+        logger.debug("Buscando el funko mas caro");
+        return funkoRepositorio.FunkoCaro().get();
+    }
+
+    @Override
+    public Double mediaFunko() throws ExecutionException, InterruptedException {
+        logger.debug("Buscando la media de los funkos");
+        return funkoRepositorio.mediaFunko().get();
+    }
+
+    @Override
+    public List<Funko> funko2023() throws ExecutionException, InterruptedException {
+        logger.debug("Buscando funkos lanzados en 2023");
+        return funkoRepositorio.funko2023().get();
+    }
 }

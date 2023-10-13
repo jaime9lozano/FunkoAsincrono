@@ -19,6 +19,7 @@ import java.util.Optional;
 import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionException;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class FunkoRepositorioImp implements FunkoRepositorio{
     private static FunkoRepositorioImp instance;
@@ -214,6 +215,89 @@ public class FunkoRepositorioImp implements FunkoRepositorio{
                 }
             } catch (SQLException e) {
                 logger.error("Error al buscar funkos por nombre", e);
+                throw new CompletionException(e);
+            }
+            return lista;
+        });
+    }
+
+    @Override
+    public CompletableFuture<Optional<Funko>> FunkoCaro() {
+        logger.debug("Buscando el funko mas caro");
+        return CompletableFuture.supplyAsync(() -> {
+            Optional<Funko> funko = Optional.empty();
+            String query = "SELECT * FROM FUNKOS ORDER BY precio DESC LIMIT 1";
+            try (var connection = db.getConnection();
+                 var stmt = connection.prepareStatement(query)
+            ) {
+                var rs = stmt.executeQuery();
+                while (rs.next()) {
+                    funko = Optional.of(Funko.builder()
+                            .cod(rs.getObject("UUID", UUID.class))
+                            .nombre(rs.getString("nombre"))
+                            .tipo(Tipo.valueOf(rs.getString("modelo")))
+                            .precio(rs.getDouble("precio"))
+                            .fecha_cre(rs.getObject("fecha_lanzamiento", LocalDate.class))
+                            .myID(rs.getLong("MyID"))
+                            .build()
+                    );
+                }
+            } catch (SQLException e) {
+                logger.error("Error al buscar funko mas caro", e);
+                throw new CompletionException(e);
+            }
+            return funko;
+        });
+    }
+
+    @Override
+    public CompletableFuture<Double> mediaFunko() {
+        final Double[] mediaPrecios = {null};
+        logger.debug("Buscando la media de los funkos");
+        return CompletableFuture.supplyAsync(() -> {
+            String query = "SELECT AVG(precio) AS media_precios FROM FUNKOS";
+            try (var connection = db.getConnection();
+                 var stmt = connection.prepareStatement(query)
+            ) {
+                var rs = stmt.executeQuery();
+                while (rs.next()) {
+                    mediaPrecios[0] =rs.getDouble("media_precios");
+                }
+            } catch (SQLException e) {
+                logger.error("Error al buscar funko mas caro", e);
+                throw new CompletionException(e);
+            }
+            return mediaPrecios[0];
+        });
+    }
+
+    @Override
+    public CompletableFuture<List<Funko>> funko2023() {
+        return CompletableFuture.supplyAsync(() -> {
+            var lista = new ArrayList<Funko>();
+            String query = "SELECT * FROM FUNKOS WHERE YEAR(fecha_lanzamiento) = 2023";
+            try (var connection = db.getConnection();
+                 var stmt = connection.prepareStatement(query)
+            ) {
+                logger.debug("Obteniendo todos los funkos lanzados en 2023");
+                // Vamos a usar Like para buscar por nombre
+
+                var rs = stmt.executeQuery();
+                while (rs.next()) {
+                    // Creamos un alumno
+                    Funko funko = Funko.builder()
+                            .cod(rs.getObject("UUID", UUID.class))
+                            .nombre(rs.getString("nombre"))
+                            .tipo(Tipo.valueOf(rs.getString("modelo")))
+                            .precio(rs.getDouble("precio"))
+                            .fecha_cre(rs.getObject("fecha_lanzamiento", LocalDate.class))
+                            .myID(rs.getLong("MyID"))
+                            .build();
+                    // Lo añadimos a la lista
+                    lista.add(funko);
+                }
+            } catch (SQLException e) {
+                logger.error("Error al buscar funkos por fecha", e);
                 throw new CompletionException(e);
             }
             return lista;

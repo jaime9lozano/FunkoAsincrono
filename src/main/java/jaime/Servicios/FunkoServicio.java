@@ -22,4 +22,7 @@ public interface FunkoServicio {
     boolean deleteById(long id) throws SQLException, ExecutionException, InterruptedException;
 
     void deleteAll() throws SQLException, ExecutionException, InterruptedException;
+    Optional<Funko> funkoCaro()throws ExecutionException, InterruptedException;
+    Double mediaFunko() throws ExecutionException, InterruptedException;
+    List<Funko> funko2023() throws ExecutionException, InterruptedException;
 }

@@ -15,7 +15,7 @@ public class DatabaseManager {
     private static DatabaseManager instance;
     private final Logger logger = LoggerFactory.getLogger(DatabaseManager.class);
     private final HikariDataSource dataSource;
-    private boolean databaseInitTables = true; // Deberíamos inicializar las tablas? Fichero de configuración
+    private boolean databaseInitTables = false; // Deberíamos inicializar las tablas? Fichero de configuración
     private String databaseUrl = "jdbc:h2:mem:test;DB_CLOSE_DELAY=-1"; // Fichero de configuración se lee en el constructor
     private String databaseInitScript = "init.sql"; // Fichero de configuración se lee en el constructor
     private Connection conn;
