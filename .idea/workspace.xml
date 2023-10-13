@@ -4,16 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4cbff12c-2e45-46d3-a1ce-52989332d62a" name="Changes" comment="V0.2">
-      <change afterPath="$PROJECT_DIR$/src/main/java/jaime/Servicios/CSVJSON.java" afterDir="false" />
+    <list default="true" id="4cbff12c-2e45-46d3-a1ce-52989332d62a" name="Changes" comment="V0.3">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jaime/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jaime/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jaime/Servicios/DatabaseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jaime/Servicios/DatabaseManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jaime/Servicios/FunkoServicio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jaime/Servicios/FunkoServicio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jaime/Servicios/FunkoServicioImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jaime/Servicios/FunkoServicioImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jaime/repositorios/FunkoRepositorio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jaime/repositorios/FunkoRepositorio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jaime/repositorios/FunkoRepositorioImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jaime/repositorios/FunkoRepositorioImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/database.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/database.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jaime/Servicios/CSVJSON.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jaime/Servicios/CSVJSON.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +101,7 @@
       <updated>1697198740020</updated>
       <workItem from="1697198741041" duration="437000" />
       <workItem from="1697199230132" duration="6052000" />
-      <workItem from="1697212889555" duration="6759000" />
+      <workItem from="1697212889555" duration="7314000" />
     </task>
     <task id="LOCAL-00001" summary="V0.1">
       <option name="closed" value="true" />
@@ -134,7 +127,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697205332023</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="V0.3">
+      <option name="closed" value="true" />
+      <created>1697219729389</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1697219729389</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -143,6 +144,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="V0.1" />
     <MESSAGE value="V0.2" />
-    <option name="LAST_COMMIT_MESSAGE" value="V0.2" />
+    <MESSAGE value="V0.3" />
+    <option name="LAST_COMMIT_MESSAGE" value="V0.3" />
   </component>
 </project>
